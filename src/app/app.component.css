@@ -1,0 +1,5 @@
+.app-body{
+    min-height: 70vh;
+    padding-top: 110px;
+    z-index: 1;
+}

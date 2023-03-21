@@ -1,0 +1,9 @@
+nav{
+    margin-top: 60px;
+    height: 50px;
+    background-color: var(--header-color);
+}
+
+.nav-link:hover{
+    color: rebeccapurple;
+}
