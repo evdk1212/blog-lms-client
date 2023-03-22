@@ -1,15 +1,11 @@
-<section class="featured-section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-center mt-5" >
-                <h2 class="text-white"> Featured Posts</h2>
-                <p class="text-white">ihiwhfhhfeu iuiuertyui iuuertyfi3y iutyi3y</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3" *ngFor="let featuredpost of featuredPostArray">
-                <dk-post-card [postData] = "featuredpost"></dk-post-card>
-            </div>
+<section class="container mt-5">
+    <div class="col-md-12 text-center">
+        <h2 class="text-white">Featured Posts</h2>
+        <p class="text-white"> Our top picks for you!</p>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mt-3" *ngFor="let featuredPost of featuredPostArray">
+            <dk-post-card [postData]="featuredPost"></dk-post-card>
         </div>
     </div>
 </section>
@@ -17,7 +13,7 @@
 <section class="container mt-5">
     <div class="col-md-12 text-center">
         <h2 class="text-white">Latest Posts</h2>
-        <p class="text-white"> kjehfh hfhu ewiie wieiow</p>
+        <p class="text-white">Explore our latest and greatest!</p>
     </div>
     <div class="row">
         <div class="col-md-3 mt-3" *ngFor="let latestPost of latestPostArray">

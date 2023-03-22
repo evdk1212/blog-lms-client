@@ -76,3 +76,8 @@ input[type=text], input[type=email]{
     background-color: rgba(255, 255, 255, 0.134);
     color: var(--text-color);
 }
+
+
+.icon-color{
+    color: rebeccapurple;
+}
