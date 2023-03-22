@@ -11,11 +11,17 @@ import { PostsService } from 'src/app/services/posts.service';
 export class SinglePostComponent implements OnInit{
   singlePostData:any;
   similarPostAray:Post[]=[];
-postData: any;
+  commentsArray:Comment[]=[];
+  postId:any;
+  name:any;
+  msg:any;
+  postData: any;
   constructor(private route:ActivatedRoute,private postService:PostsService){}
   ngOnInit(): void {
       this.route.params.subscribe(val=>{
         this.postService.countViews(val['id']);
+        this.loadComment(val['id']);
+        this.postId=val['id'];
         this.postService.loadOnePost(val['id']).subscribe(post=>{
           this.singlePostData=post;
           this.loadSimilarPost(this.singlePostData.category.categoryId);
@@ -26,6 +32,13 @@ postData: any;
   loadSimilarPost(catid:any){
     this.postService.loadSimilarPost(catid).subscribe(val=>{
       this.similarPostAray=val;
+    });
+  }
+
+  
+  loadComment(postId:any){
+    this.postService.loadComments(postId).subscribe(val=>{
+      this.commentsArray=val;
     });
   }
 

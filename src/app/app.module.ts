@@ -18,6 +18,8 @@ import { CommentListComponent } from './comments/comment-list/comment-list.compo
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PostCardComponent } from './layouts/post-card/post-card.component';
 import { environment } from 'src/environments/environments.prod';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -42,7 +44,7 @@ import { environment } from 'src/environments/environments.prod';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

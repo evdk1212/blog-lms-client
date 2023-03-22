@@ -7,13 +7,15 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
+
 const routes: Routes = [
   {path: '',component:HomeComponent},
   {path:'category/:category/:id',component:SingleCategoryComponent},
   {path:'post/:id',component:SinglePostComponent},
   {path:'about',component:AboutUsComponent},
   {path:'terms-conditions',component:TermsAndConditionsComponent},
-  {path:'contact',component:ContactUsComponent} 
+  {path:'contact',component:ContactUsComponent},
+  
 ];
 
 @NgModule({

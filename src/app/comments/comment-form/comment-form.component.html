@@ -2,16 +2,18 @@
     <div class="card-body">
         <h4>Leave a Comment</h4>
         <p>You can leave a comment about this post!</p>
-        <form>
+        <form  #commentForm = 'ngForm' (ngSubmit) = "createComments(commentForm)">
             <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" class="form-control mt-1" placeholder="Enter your name here">
+                <input type="text" name="name" class="form-control mt-1" placeholder="Enter your name here" #newName = 'ngModel' ngModel [(ngModel)]="commentForm.name" required [ngClass]="{'is-invalid':newName.touched && newName.invalid}">
+                <div class="alert alert-danger" *ngIf="newName.touched && newName.invalid">Name field is required</div>
             </div>
             <div class="form-group mt-3">
                 <label for="">Comment</label>
-                <textarea class="form-control mt-1" cols="30" rows="10" placeholder="Add your comment here!"></textarea>
+                <textarea class="form-control mt-1" cols="30" rows="10" name="msg" placeholder="Add your comment here!" #newComment = 'ngModel' ngModel  required [ngClass]="{'is-invalid':newComment.touched && newComment.invalid}"></textarea>
+                <div class="alert alert-danger" *ngIf="newComment.touched && newComment.invalid">Name field is required</div>
             </div>
-            <button class="btn btn-info mt-3 btn-theme">Add a comment</button>
+            <button class="btn btn-info mt-3 btn-theme" [disabled]="commentForm.invalid">Add a comment</button>
         </form>
     </div>
 </div>

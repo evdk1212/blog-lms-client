@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { Post } from '../models/post';
 import * as firebase from '@angular/fire/firestore';
+import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -67,4 +68,25 @@ export class PostsService {
       
     });
   }
+  createComment(postId:any,name:any,msg:any,date:any){
+    this.afs.collection('posts').doc(postId).collection('comments').add({
+      'name':name,
+      'msg': msg,
+      'createdDate':date,
+    }).then(()=>{
+
+    });
+
+  }
+  loadComments(postID:any): Observable<Comment[]> {
+    return this.afs.collection<Post>('posts').doc(postID).collection<Comment>('comments').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+}
 }

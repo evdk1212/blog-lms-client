@@ -13,8 +13,17 @@
                     
                 </div>
             </div>
-            <dk-comment-form></dk-comment-form>
-            <dk-comment-list></dk-comment-list>
+            <dk-comment-form [postIdData] = "postId" ></dk-comment-form>
+            <div>
+                <div class="card mt-5 mb-5 pb-5 shadow-effect card-custom">
+                    <div class="card-body card-body-custom">
+                        <h4 class="mt-3 mb-3">Comments ({{commentsArray.length}})</h4>
+                        <div  *ngFor="let comment of commentsArray">
+                            <dk-comment-list [commentData] = "comment"></dk-comment-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-3 mt-4">
             <div class="mb-3" *ngFor="let similarPost of similarPostAray">
